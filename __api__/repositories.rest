@@ -1,0 +1,30 @@
+@baseUrl=http://localhost:3333
+@id=5b1c5dd7-7ab6-4cc8-9bf3-fbb963340dbc
+
+GET {{baseUrl}}/repositories HTTP/1.1
+
+###
+POST {{baseUrl}}/repositories HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Umbriel",
+  "url": "https://github.com/Rocketseat/umbriel",
+  "techs": "Node, Express, TypeScript"
+}
+
+###
+POST {{baseUrl}}/repositories/{{id}}/like HTTP/1.1
+
+###
+PUT {{baseUrl}}/repositories/{{id}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "João",
+  "techs": "PHP, C#, Java, Angular",
+  "likes": 4
+}
+
+###
+DELETE {{baseUrl}}/repositories/{{id}} HTTP/1.1
