@@ -32,7 +32,7 @@ app.post('/repositories', (req, res) => {
 app.put('/repositories/:id', (req, res) => {
   const { id } = req.params
   const { title, url, techs } = req.body
-  const repository = repositories.find(item => item.id == id)
+  const repository = repositories.find(item => item.id === id)
 
   if (!repository) {
     return res.status(400).json({ error: 'Repository does not exists.' })
@@ -56,7 +56,7 @@ app.put('/repositories/:id', (req, res) => {
 app.delete('/repositories/:id', (req, res) => {
   const { id } = req.params
   const index = repositories.findIndex(item => item.id === id)
-  repositories.splice(index)
+  repositories.splice(index, 1)
 
   if (index === -1) {
     return res.status(400).json({ error: 'Repository does not exists.' })
